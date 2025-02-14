@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { signOut } from "next-auth/react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -8,11 +8,12 @@ import { Clipboard, Loader } from "lucide-react"; // Import Loader for Spinner
 import Link from "next/link";
 import { createOpenAI } from "@ai-sdk/openai";
 import { generateText } from "ai";
+import Image from "next/image";
 function Navbar() {
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-lg">
       <div className="flex items-center space-x-3">
-        <img src="/assets/images/Ai.png" alt="App Logo" className="w-10 h-10" />
+        <Image src="/assets/images/Ai.png" alt="App Logo" width={40} height={40} />
         <h1 className="text-xl font-bold mt-2">AI Code Generator</h1>
       </div>
       <div className="flex items-center gap-x-6">
@@ -41,12 +42,12 @@ export default function ChatbotAI() {
 
     try {
       const openai = createOpenAI({
-        apiKey:"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",
+        apiKey:"",
       });
 
       const { text } = await generateText({
         model: openai("gpt-4o-mini"),
-        prompt: `Generate pure HTML with <style></style> for ${input}. Only return the raw HTML, without Markdown formatting, backticks, or extra text.`,
+        prompt: `Generate pure HTML with <style></style> for ${input}. Only return the raw HTML, without Markdown formatting, backticks, or extra text. Dont use hex colors, write names instead`,
       });
 
       setGeneratedCode(text);
@@ -67,16 +68,12 @@ export default function ChatbotAI() {
     }
   };
 
-  useEffect(() => {
-    generatePreview();
-  }, [generatedCode]);
-
-  const generatePreview = () => {
+  const generatePreview = useCallback(() => {
     if (!generatedCode || generatedCode.trim().length === 0) {
       return;
     }
 
-    let iframe = document.getElementById("previewIframe") as HTMLIFrameElement;
+    const iframe = document.getElementById("previewIframe") as HTMLIFrameElement;
     if (!iframe) return;
 
     const doc = iframe.contentDocument || iframe.contentWindow?.document;
@@ -88,7 +85,11 @@ export default function ChatbotAI() {
     doc.open();
     doc.write(generatedCode);
     doc.close();
-  };
+  }, [generatedCode]);
+
+  useEffect(() => {
+    generatePreview();
+  }, [generatePreview]);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-800 via-purple-800 to-gray-800 text-white">
