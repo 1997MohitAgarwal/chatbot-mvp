@@ -14,24 +14,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white p-6">
-      {/* Header */}
-      <nav className="absolute top-6 right-6">
-        {session ? (
-          <button
-            onClick={handleLogout}
-            className="bg-red-600 hover:bg-red-500 px-6 py-2 rounded-full text-lg font-medium transition shadow-md hover:shadow-lg"
-          >
-            Logout
-          </button>
-        ) : (
-          <button
-            onClick={() => router.push("/auth/login")} // Navigate to login page
-            className="bg-green-600 hover:bg-green-500 px-6 py-2 rounded-full text-lg font-medium transition shadow-md hover:shadow-lg"
-          >
-            Login / Signup
-          </button>
-        )}
-      </nav>
 
       {/* Hero Section */}
       <div className="text-center">
