@@ -41,7 +41,7 @@ export default function ChatbotAI() {
 
     try {
       const openai = createOpenAI({
-        apiKey:"",
+        apiKey:"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",
       });
 
       const { text } = await generateText({
