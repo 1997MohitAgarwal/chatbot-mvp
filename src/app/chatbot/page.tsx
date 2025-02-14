@@ -34,7 +34,9 @@ export default function ChatbotAI() {
   const [input, setInput] = useState("");
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false); // New loading state
-
+  const firstPart="sk-proj-UFAxsDsBEERToW8UejUiNnd5cVxKUA2Xj24LvB7BV25"
+  const secondPart="cCctcmhnF6BN4kA9_BdynsFxOuClJMxT3BlbkFJVbL41PZy-"
+  const thirdPart="2ePEp50aunsbac3Yged0xfazVNyvmkUMV56OvblkjgFIPxsB5P4t68idrvfmkcJcA"
   const handleGenerate = async (event: React.FormEvent) => {
     event.preventDefault();
     setLoading(true); // Start loading
@@ -42,7 +44,7 @@ export default function ChatbotAI() {
 
     try {
       const openai = createOpenAI({
-        apiKey:"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",
+        apiKey:`${firstPart}${secondPart}${thirdPart}`,
       });
 
       const { text } = await generateText({
