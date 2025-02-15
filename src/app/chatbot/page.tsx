@@ -16,7 +16,7 @@ function Navbar() {
     <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-lg">
       <div className="flex items-center space-x-3">
         <Image src="/assets/images/Ai.png" alt="App Logo" width={40} height={40} />
-        <h1 className="text-xl font-bold mt-2">AI Code Generator</h1>
+        <h1 className="text-xl text-orange-600 font-bold mt-2">Code<span className="text-white">Bot</span></h1>
       </div>
       <div className="flex items-center gap-x-6">
         <Link href="/">Home</Link>
