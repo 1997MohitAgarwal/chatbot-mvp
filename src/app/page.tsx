@@ -18,7 +18,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="text-center">
         <h1 className="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
-          Welcome to AI Chat Assistant
+          Welcome to AI Code Assistant
         </h1>
         <p className="text-lg text-gray-300 max-w-xl mx-auto">
           Experience the power of AI-driven conversations with seamless integration.
