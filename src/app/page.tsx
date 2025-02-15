@@ -32,13 +32,13 @@ export default function Home() {
             <>
               <Button
                 onClick={() => router.push("/chatbot")}
-                className="bg-blue-600 hover:bg-blue-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg"
+                className="bg-blue-600 hover:bg-blue-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg z-10"
               >
                 Go to Chatbot
               </Button>
               <Button
                 onClick={handleLogout}
-                className="bg-red-600 hover:bg-red-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg"
+                className="bg-red-600 hover:bg-red-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg z-10"
               >
                 Logout
               </Button>
@@ -46,7 +46,7 @@ export default function Home() {
           ) : (
             <Button
               onClick={() => router.push("/auth/login")} // Navigate to login page
-              className="bg-green-600 hover:bg-green-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg"
+              className="bg-green-600 hover:bg-green-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg z-10"
             >
               Login / Signup
             </Button>
