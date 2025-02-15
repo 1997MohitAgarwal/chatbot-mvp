@@ -2,7 +2,7 @@
 
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import { Button } from "@/components/ui/button";
 export default function Home() {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -30,33 +30,33 @@ export default function Home() {
             <p className="text-lg animate-pulse">Checking authentication...</p>
           ) : session ? (
             <>
-              <button
+              <Button
                 onClick={() => router.push("/chatbot")}
                 className="bg-blue-600 hover:bg-blue-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg"
               >
                 Go to Chatbot
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={handleLogout}
                 className="bg-red-600 hover:bg-red-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg"
               >
                 Logout
-              </button>
+              </Button>
             </>
           ) : (
-            <button
+            <Button
               onClick={() => router.push("/auth/login")} // Navigate to login page
               className="bg-green-600 hover:bg-green-500 px-8 py-2 rounded-full text-md font-medium transition shadow-md hover:shadow-lg"
             >
               Login / Signup
-            </button>
+            </Button>
           )}
         </div>
       </div>
 
       {/* Decorative Gradient Effects */}
-      <div className="absolute bottom-10 left-10 w-72 h-72 bg-purple-600 opacity-40 blur-3xl rounded-full"></div>
-      <div className="absolute top-16 right-16 w-40 h-40 bg-yellow-400 opacity-30 blur-2xl rounded-full"></div>
+      <div className="absolute bottom-10 left-10 w-72 h-72 bg-purple-600 opacity-40 blur-3xl rounded-full pointer-events-none"></div>
+      <div className="absolute top-16 right-16 w-40 h-40 bg-yellow-400 opacity-30 blur-2xl rounded-full pointer-events-none"></div>
     </div>
   );
 }
