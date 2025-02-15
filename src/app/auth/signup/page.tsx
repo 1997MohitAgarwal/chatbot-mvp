@@ -50,7 +50,7 @@ export default function SignupPage() {
             <label className="block text-sm font-medium">Email</label>
             <input
               type="email"
-              placeholder="john@example.com"
+              placeholder="User@provider.com"
               onChange={(e) => setEmail(e.target.value)}
               className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
             />

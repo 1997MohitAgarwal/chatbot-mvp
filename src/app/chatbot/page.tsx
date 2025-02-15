@@ -9,6 +9,8 @@ import Link from "next/link";
 import { createOpenAI } from "@ai-sdk/openai";
 import { generateText } from "ai";
 import Image from "next/image";
+
+// Navbar component
 function Navbar() {
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-lg">
@@ -33,15 +35,15 @@ export default function ChatbotAI() {
   const [generatedCode, setGeneratedCode] = useState(``);
   const [input, setInput] = useState("");
   const [copied, setCopied] = useState(false);
-  const [loading, setLoading] = useState(false); // New loading state
+  const [loading, setLoading] = useState(false);
   const firstPart="sk-proj-UFAxsDsBEERToW8UejUiNnd5cVxKUA2Xj24LvB7BV25"
   const secondPart="cCctcmhnF6BN4kA9_BdynsFxOuClJMxT3BlbkFJVbL41PZy-"
   const thirdPart="2ePEp50aunsbac3Yged0xfazVNyvmkUMV56OvblkjgFIPxsB5P4t68idrvfmkcJcA"
+  // Generate HTML CSS response
   const handleGenerate = async (event: React.FormEvent) => {
     event.preventDefault();
-    setLoading(true); // Start loading
-    setGeneratedCode(""); // Clear previous results
-
+    setLoading(true);
+    setGeneratedCode("");
     try {
       const openai = createOpenAI({
         apiKey:`${firstPart}${secondPart}${thirdPart}`,
@@ -56,10 +58,10 @@ export default function ChatbotAI() {
     } catch (error) {
       console.error("Error generating code:", error);
     } finally {
-      setLoading(false); // Stop loading after response
+      setLoading(false);
     }
   };
-
+ // Copy to Clipboard
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(generatedCode);
@@ -69,7 +71,7 @@ export default function ChatbotAI() {
       console.error("Failed to copy:", error);
     }
   };
-
+ // Preview Generation using Iframe
   const generatePreview = useCallback(() => {
     if (!generatedCode || generatedCode.trim().length === 0) {
       return;
