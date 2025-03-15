@@ -39,6 +39,7 @@ export default function ChatbotAI() {
   const part1 = "sk-proj-SQqJrkQINgcigJa47WlIPaZdPA_mE84HF-";
   const part2 = "DI1G0I9oPjAG3r49nHfBgd19uOGykT6qsl87jnCgT3BlbkFJctvFcfDj1OCJQgjAU_";
   const part3 = "9sphyRpjdOrgkrmFHsR6SLw3PmNkyW-5Ma-ibSpmyniQ2uIrCYq5t80A"
+  const apiKey = `${part1}${part2}${part3}`;
   // Generate HTML CSS response
   const handleGenerate = async (event: React.FormEvent) => {
     event.preventDefault();
