@@ -47,7 +47,7 @@ export default function ChatbotAI() {
     setGeneratedCode("");
     try {
       const openai = createOpenAI({
-        apiKey:`${firstPart}${secondPart}${thirdPart}`,
+        apiKey:`${apiKey}`,
       });
 
       const { text } = await generateText({
