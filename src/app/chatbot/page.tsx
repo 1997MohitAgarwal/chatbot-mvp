@@ -36,9 +36,9 @@ export default function ChatbotAI() {
   const [input, setInput] = useState("");
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
-  const firstPart="sk-proj-UFAxsDsBEERToW8UejUiNnd5cVxKUA2Xj24LvB7BV25"
-  const secondPart="cCctcmhnF6BN4kA9_BdynsFxOuClJMxT3BlbkFJVbL41PZy-"
-  const thirdPart="2ePEp50aunsbac3Yged0xfazVNyvmkUMV56OvblkjgFIPxsB5P4t68idrvfmkcJcA"
+  const part1 = "sk-proj-SQqJrkQINgcigJa47WlIPaZdPA_mE84HF-";
+  const part2 = "DI1G0I9oPjAG3r49nHfBgd19uOGykT6qsl87jnCgT3BlbkFJctvFcfDj1OCJQgjAU_";
+  const part3 = "9sphyRpjdOrgkrmFHsR6SLw3PmNkyW-5Ma-ibSpmyniQ2uIrCYq5t80A"
   // Generate HTML CSS response
   const handleGenerate = async (event: React.FormEvent) => {
     event.preventDefault();
